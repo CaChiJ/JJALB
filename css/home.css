@@ -1,0 +1,19 @@
+.page {
+    display: grid;
+    grid-template:
+    "header header header" 65px
+    ". content ." 100vh
+    "footer footer footer" 30vh / 1fr 3fr 1fr;
+}
+
+.header {
+    background-color: white;
+}
+
+.content {
+    grid-area: content;
+}
+
+.footer {
+    grid-area: footer;
+}
