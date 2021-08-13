@@ -3,7 +3,7 @@
     width: 100%;
     grid-template:
     "header header header" 65px
-    ". content ." 1fr;
+    ". content ." 1fr
     "footer footer footer" 0px / 1fr 5fr 1fr;
 }
 
@@ -21,38 +21,53 @@
     grid-area: footer;
 }
 
-.slogun {
-    margin: 15vh;
-    text-align: center;
-    font-size: 15vh;
-    font-family: "Song Myung";
-    font-style: oblique;
-}
-
 .subscription {
+    margin-top: 80px;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 2.3vmax;
     font-family: "Gowun Batang";
 }
 
 .starting {
     display: flex;
+    height: 200px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
     justify-content: center;
 }
 
 .start-key {
-    margin-top: 10px;
-    font-size: 40px;
+    height: 120px;
+    font-size: 60px;
     text-decoration: none;
-    height: 60px;
-    border: 2px solid rgb(150, 150, 150);
-    border-bottom: 7px solid rgb(150, 150, 150);
-    border-top: 0;
+    border-left: 13px solid rgb(130, 130, 130);
+    border-right: 13px solid rgb(130, 130, 130);
+    border-bottom: 30px solid rgb(160, 160, 160);
+    border-top: 3px solid rgb(70, 70, 70);
     color: rgb(40, 40, 40);
     font-weight: bold;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(250, 250, 250);
     border-radius: 3px;
     box-shadow: 
-    inset 0px 0px 25px rgb(210, 210, 210),
-    0px 4px 6px black;
+    inset 0px 0px 25px rgb(220, 220, 220),
+    0px 5px 20px black;
+}
+
+.start-key:active {
+    height: 105px;
+    border-left: 7px solid rgb(130, 130, 130);
+    border-right: 7px solid rgb(130, 130, 130);
+    border-bottom: 22px solid rgb(160, 160, 160);
+    border-top: 0.5px solid rgb(70, 70, 70);
+    box-shadow:
+    inset 0px 0px 25px rgb(230, 230, 230),
+    0px 0px 5px black;
+}
+
+.key-guide {
+    display: block;
+    text-align: center;
+    font-family: "Gowun batang";
 }

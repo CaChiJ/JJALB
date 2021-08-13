@@ -19,6 +19,7 @@
 
 .general-logo {
     justify-self: center;
+    text-decoration: none;
     font-size: 35px;
     background-color: black;
     color: white;
@@ -32,11 +33,16 @@
     flex-grow: 1;
     font-size: 45px;
     font-family: Bebas Neue;
+    text-decoration: none;
+    color: black;
 }
 
 .general-about {
     text-align: center;
     width: 80px;
+    margin-top: 3px;
     font-size: 20px;
     font-family: Bebas Neue;
+    text-decoration: none;
+    color: black;
 }
