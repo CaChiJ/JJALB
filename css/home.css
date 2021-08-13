@@ -1,9 +1,10 @@
 .page {
     display: grid;
+    width: 100%;
     grid-template:
     "header header header" 65px
-    ". content ." 1fr
-    "footer footer footer" 30vh / 1fr 5fr 1fr;
+    ". content ." 1fr;
+    "footer footer footer" 0px / 1fr 5fr 1fr;
 }
 
 .header {
@@ -21,7 +22,7 @@
 }
 
 .slogun {
-    margin: 18vh;
+    margin: 15vh;
     text-align: center;
     font-size: 15vh;
     font-family: "Song Myung";
@@ -30,7 +31,7 @@
 
 .subscription {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: "Gowun Batang";
 }
 
@@ -40,17 +41,18 @@
 }
 
 .start-key {
+    margin-top: 10px;
     font-size: 40px;
     text-decoration: none;
     height: 60px;
     border: 2px solid rgb(150, 150, 150);
     border-bottom: 7px solid rgb(150, 150, 150);
     border-top: 0;
-    color: black;
+    color: rgb(40, 40, 40);
     font-weight: bold;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(240, 240, 240);
     border-radius: 3px;
     box-shadow: 
-    inset 0px 0px 25px rgb(190, 190, 190),
-    0px 5px 6px black;
+    inset 0px 0px 25px rgb(210, 210, 210),
+    0px 4px 6px black;
 }
