@@ -2,18 +2,55 @@
     display: grid;
     grid-template:
     "header header header" 65px
-    ". content ." 100vh
-    "footer footer footer" 30vh / 1fr 3fr 1fr;
+    ". content ." 1fr
+    "footer footer footer" 30vh / 1fr 5fr 1fr;
 }
 
 .header {
+    grid-area: header;
     background-color: white;
 }
 
 .content {
     grid-area: content;
+    height: 100vh;
 }
 
 .footer {
     grid-area: footer;
+}
+
+.slogun {
+    margin: 18vh;
+    text-align: center;
+    font-size: 15vh;
+    font-family: "Song Myung";
+    font-style: oblique;
+}
+
+.subscription {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: "Gowun Batang";
+}
+
+.starting {
+    display: flex;
+    justify-content: center;
+}
+
+.start-key {
+    font-size: 40px;
+    text-decoration: none;
+    height: 60px;
+    border: 2px solid rgb(150, 150, 150);
+    border-bottom: 7px solid rgb(150, 150, 150);
+    border-top: 0;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(220, 220, 220);
+    border-radius: 3px;
+    box-shadow: 
+    inset 0px 0px 25px rgb(190, 190, 190),
+    0px 5px 6px black;
 }
