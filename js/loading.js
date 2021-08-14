@@ -1,6 +1,5 @@
 import data from '/data/loadingMsgs.js';
 
-console.log(data);
 function showLoadingMsg() {
     const INTERVAL = 3000;
     const tipBox = document.querySelector('.short-tip');
