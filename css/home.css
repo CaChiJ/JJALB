@@ -1,41 +1,18 @@
-.page {
-    display: grid;
-    width: 100%;
-    grid-template:
-    "header header header" 65px
-    ". content ." 1fr
-    "footer footer footer" 0px / 1fr 5fr 1fr;
-}
-
-.header {
-    grid-area: header;
-    background-color: white;
-}
-
-.content {
-    grid-area: content;
-    height: 100vh;
-}
-
-.footer {
-    grid-area: footer;
-}
-
-.subscription {
-    margin-top: 80px;
+.description {
+    margin-top: 10vh;
     text-align: center;
-    font-size: 2.3vmax;
+    font-size: 2.5vmax;
     font-family: "Gowun Batang";
 }
 
 .starting {
     display: flex;
-    height: 200px;
+    height: 30vh;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     margin-top: 50px;
     display: flex;
-    justify-content: center;
 }
 
 .start-key {
@@ -69,5 +46,6 @@
 .key-guide {
     display: block;
     text-align: center;
+    margin-top: 30px;
     font-family: "Gowun batang";
 }

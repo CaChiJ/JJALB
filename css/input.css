@@ -1,0 +1,37 @@
+.input-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    width : 100%;
+
+}
+
+.writing-area {
+    height: 50vh;
+    width: 65vw;
+    padding: 2vw;
+    resize: none;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.btn-area {
+    display: flex;
+    width: 69vw;
+    justify-content: flex-end;
+}
+
+.start-btn {
+    margin-top: 2vh;
+    font-size: 1.2rem;
+    width: 8rem;
+    height: 4rem;
+    background-color: black;
+    color: white;
+    font-family: "Gowun Dodum";
+    border: 2px solid black;
+    border-radius: 5px;
+}
