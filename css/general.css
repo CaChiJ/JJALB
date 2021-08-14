@@ -5,7 +5,13 @@
 
 .general-body {
     margin: 0;
-    overflow-y:hidden
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.general-body::-webkit-scrollbar {
+    display:none; /* Chrome, Safari, Opera */
+}
 }
 
 .general-header {
