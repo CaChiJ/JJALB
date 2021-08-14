@@ -22,9 +22,13 @@ body {
     margin: 8vh 0 1vh 0;
     font-family: 'Gowun Batang';
     font-size: 0.9rem;
+    width: 90%;
+    text-align: center;
 }
 
 .short-tip {
     font-family: "Gowun Dodum";
     font-size: 1.1rem;
+    width: 90%;
+    text-align: center;
 }
