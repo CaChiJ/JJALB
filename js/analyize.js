@@ -9,7 +9,6 @@ class Analysis {
 }
 
 const RESULT_PAGE = "/html/result.html";
-const LOADING_PAGE = "/html/loading.html";
 
 const REMOVED_SPACE = '_';
 
@@ -37,8 +36,9 @@ const replaceTable = [
 ];
 
 
-function sleep(ms) {
-    return new Promise((r) => setTimeout(r, ms));
+function setPercentage(percentage) {
+    const progressBox = document.querySelector('.progress');
+    progressBox.innerText = `${percentage}%`;
 }
 
 
@@ -55,6 +55,8 @@ function analyize() {
     let result = [];
 
     for (let idx = 0; idx < originalText.length; ++idx) {
+        setPercentage(Math.round((idx+1) / originalText.length * 100));
+
         if (passCount > 0) {
             passCount--;
             continue;
