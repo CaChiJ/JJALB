@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.circle-jjalb {
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+    font-size: 8rem;
+    font-family: "Song Myung";
+    padding: 8vh;
+}
+
+.notify {
+    margin: 8vh 0 1vh 0;
+    font-family: 'Gowun Batang';
+    font-size: 0.9rem;
+}
+
+.short-tip {
+    font-family: "Gowun Dodum";
+    font-size: 1.1rem;
+}
