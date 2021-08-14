@@ -11,7 +11,7 @@
 .writing-area {
     height: 50vh;
     width: 65vw;
-    padding: 2vw;
+    padding: 1.5vw;
     resize: none;
     font-size: 1rem;
     border: 2px solid black;
@@ -20,7 +20,7 @@
 
 .btn-area {
     display: flex;
-    width: 69vw;
+    width: 68vw;
     justify-content: flex-end;
 }
 
