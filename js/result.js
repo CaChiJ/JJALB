@@ -1,10 +1,14 @@
 const textMonitor = document.querySelector('.text-monitor');
 const analysisBox = document.querySelector('.suggestion-box');
 
-function init() {
-    let analysis = JSON.parse(localStorage.getItem('analysis'));
-    let originalText = JSON.parse(localStorage.getItem('original_text'));
+const resetBtn = document.querySelector('.reset-btn');
 
+const analysis = JSON.parse(localStorage.getItem('analysis'));
+const originalText = JSON.parse(localStorage.getItem('original_text'));
+
+const SELECTED_CLASSNAME = 'selected';
+
+function init() {
     textMonitor.innerText = originalText;
 
     if (analysis.length === 0) {
@@ -19,6 +23,8 @@ function init() {
         block.addEventListener('click', handleClickSuggestion);
         analysisBox.appendChild(block);
     }
+
+    resetBtn.addEventListener('click', handleClickReset);
 }
 
 function makeAnalysisBlock(start_idx, prior_str, new_str, removed) {
@@ -54,22 +60,32 @@ function removeAnalysisBlock(idx) {
 
 
 function handleClickSuggestion(event) {
-    console.log(event.target);
     let block;
 
     if (event.target.classList.contains('suggestion')) {
         block = event.target;
     } else {
         block = event.target.parentElement;
-        console.log(block);
     }
 
-    if (block.classList.contains('selected')) {
-        block.classList.remove('selected');
+    if (block.classList.contains(SELECTED_CLASSNAME)) {
+        block.classList.remove(SELECTED_CLASSNAME);
     } else {
-        block.classList.add('selected');
+        block.classList.add(SELECTED_CLASSNAME);
     }
     //if(block.classList)
+}
+
+
+function handleClickReset() {
+    if(confirm("현재 변경사항을 모두 초기 상태로 되돌리시겠습니까?")) {
+        textMonitor.innerText = originalText;
+        const suggestions = analysisBox.querySelectorAll('.suggestion');
+
+        for(let i = 0; i < suggestions.length; ++i) {
+            suggestions[i].classList.remove(SELECTED_CLASSNAME);
+        }
+    }
 }
 
 
