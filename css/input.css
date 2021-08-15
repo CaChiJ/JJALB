@@ -9,7 +9,7 @@
 }
 
 .writing-area {
-    height: 50vh;
+    height: 60vh;
     width: 65vw;
     padding: 1.5vw;
     resize: none;
@@ -22,16 +22,4 @@
     display: flex;
     width: 68vw;
     justify-content: flex-end;
-}
-
-.start-btn {
-    margin-top: 2vh;
-    font-size: 1.5rem;
-    width: 8rem;
-    height: 3.5rem;
-    background-color: black;
-    color: white;
-    font-family: "Gowun Dodum";
-    border: 2px solid black;
-    border-radius: 5px;
 }
