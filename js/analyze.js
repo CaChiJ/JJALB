@@ -1,6 +1,6 @@
 class Analysis {
-    constructor(startIdx, prior_str, new_str, removed, abb_type) {
-        this.startIdx = startIdx;
+    constructor(start_idx, prior_str, new_str, removed, abb_type) {
+        this.start_idx = start_idx;
         this.prior_str = prior_str;
         this.new_str = new_str;
         this.removed = removed;
@@ -9,9 +9,13 @@ class Analysis {
 }
 
 const RESULT_PAGE = "/html/result.html";
+const ORIGINAL_TEXT_KEY = "original_text";
 
+/* 비교 분석 테이블
+ * 리스트의 각 요소는 순서대로 [<축약 대상>, <대체할 문자>, <축약한 수>] 를 의미함.
+ * 와일드카드 문자(*, ?, ~) 지원하지 않음.
+ */
 const REMOVED_SPACE = '_';
-
 const replaceTable = [
     ['하여', '해', 1],
     ['하였', '했', 1],
@@ -43,20 +47,23 @@ function setPercentage(percentage) {
 }
 
 
+// input.html submit 버튼의 onclick 함수
 function saveInput() {
     let writingArea = document.querySelector('.input-box .writing-area');
-    localStorage.setItem("original_text", JSON.stringify(writingArea.value));
+    localStorage.setItem(ORIGINAL_TEXT_KEY, JSON.stringify(writingArea.value));
 }
 
 
-function analyize() {
-    let originalText = JSON.parse(localStorage.getItem("original_text"));
+// 분석 함수
+function analyze() {
+    let originalText = JSON.parse(localStorage.getItem(ORIGINAL_TEXT_KEY));   //분석 대상
 
     let passCount = 0;
     let result = [];
 
+    // 비교를 통한 축약 분석
     for (let idx = 0; idx < originalText.length; ++idx) {
-        setPercentage(Math.round((idx+1) / originalText.length * 100));
+        setPercentage(Math.round((idx+1) / originalText.length * 100));     // 분석 진척도 표시
 
         if (passCount > 0) {
             passCount--;
@@ -85,8 +92,9 @@ function analyize() {
         }
     }
 
-    localStorage.setItem("analysis", JSON.stringify(result));
+    localStorage.setItem("analysis", JSON.stringify(result));   // 분석 결과 저장
+
     setTimeout(function() {
-        window.location.href = RESULT_PAGE;
+        window.location.href = RESULT_PAGE;     // 결과 화면 이동
     }, 1000);
 }
