@@ -2,6 +2,7 @@ const textMonitor = document.querySelector('.text-monitor');
 const analysisBox = document.querySelector('.suggestion-box');
 
 const resetBtn = document.querySelector('.reset-btn');
+const copyBtn = document.querySelector('.copy-btn');
 
 const analysis = JSON.parse(localStorage.getItem('analysis'));
 const originalText = JSON.parse(localStorage.getItem('original_text'));
@@ -25,6 +26,7 @@ function init() {
     }
 
     resetBtn.addEventListener('click', handleClickReset);
+    copyBtn.addEventListener('click', handleClickCopy);
 }
 
 function makeAnalysisBlock(start_idx, prior_str, new_str, removed) {
@@ -86,6 +88,16 @@ function handleClickReset() {
             suggestions[i].classList.remove(SELECTED_CLASSNAME);
         }
     }
+}
+
+
+function handleClickCopy() {
+    let tmpText = document.createElement('textarea');
+    tmpText.value = textMonitor.innerText;
+    document.body.appendChild(tmpText);
+    tmpText.select();
+    document.execCommand('copy');
+    document.body.removeChild(tmpText);
 }
 
 
