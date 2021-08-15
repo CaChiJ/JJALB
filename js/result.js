@@ -4,8 +4,6 @@ const analysisBox = document.querySelector('.suggestion-box');
 function init() {
     let analysis = JSON.parse(localStorage.getItem('analysis'));
     let originalText = JSON.parse(localStorage.getItem('original_text'));
-    
-    console.log(analysis);
 
     textMonitor.innerText = originalText;
 
@@ -18,7 +16,6 @@ function init() {
         let now = analysis[i];
         const block = makeAnalysisBlock(now.start_idx, now.prior_str, now.new_str, now.removed);
         analysisBox.appendChild(block);
-        console.log(block);
     }
 }
 

@@ -15,7 +15,7 @@ const ORIGINAL_TEXT_KEY = "original_text";
  * 리스트의 각 요소는 순서대로 [<축약 대상>, <대체할 문자>, <축약한 수>] 를 의미함.
  * 와일드카드 문자(*, ?, ~) 지원하지 않음.
  */
-const REMOVED_SPACE = '_';
+const REMOVED_SPACE = '<생략>';
 const replaceTable = [
     ['하여', '해', 1],
     ['하였', '했', 1],
@@ -36,7 +36,7 @@ const replaceTable = [
     ['와 같은 ', ' 같은 ', 1],
     ['와 같이', ' 같이 ', 1],
     ['게 되었', '었/였/았', 3],
-    ['게 됐', '었/였/았', 2]
+    ['게 됐', '었/였/았', 2],
     [' 수많은 ', ' 많은 ', 1]
 ];
 
@@ -78,7 +78,7 @@ function analyze() {
             let isSame = true;
 
             for (let i = 0; i < replaceTable[rep][0].length; ++i) {
-                if (replaceTable[rep][0][i] != originalText[idx + i]) {
+                if (replaceTable[rep][0][i] !== originalText[idx + i]) {
                     isSame = false;
                     break;
                 }
