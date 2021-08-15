@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 
 .general-body {
     margin: 0;
@@ -31,7 +31,7 @@
     width: 100vw;
     height: 65px;
     background-color: white;
-    box-shadow: 0px 0px 4px 1px lightgrey;
+    box-shadow: 0px 0px 4px 2px lightgrey;
 }
 
 .general-content {
