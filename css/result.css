@@ -165,3 +165,7 @@
 .sug-removed {
     flex-basis: 2.5rem;
 }
+
+.selected {
+    background-color: rgb(230, 230, 230);
+}
