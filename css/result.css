@@ -10,7 +10,7 @@
     grid-template:
         "text-label suggestion-label" 50px
         "text-monitor suggestion-box" 70vh
-        "detail-monitor control-box" 30px / 40vw 30vw;
+        "detail-monitor control-box" 30px / 50vw 25vw;
     justify-content: center;
     align-content: center;
     width: 100%;
@@ -47,6 +47,8 @@
 .text-monitor {
     grid-area: text-monitor;
     overflow: auto;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 .suggestion-label {
@@ -68,18 +70,12 @@
     display: flex;
     grid-area: detail-monitor;
     justify-content: space-between;
+    align-items: center;
+    padding: 0px 8px 0px 8px;
     font-family: "Nanum Gothic";
     font-size: 1rem;
     color: white;
     background-color: rgb(20, 20, 20);
-    padding: 8px;
-}
-
-.control-box {
-    grid-area: control-box;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 0.618fr;
 }
 
 .btn-box {

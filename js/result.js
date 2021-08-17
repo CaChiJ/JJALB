@@ -207,6 +207,5 @@ function handleMouseleaveChar(event) {
     event.target.classList.remove(MOUSEENTERTEXT_CLASSNAME);
 }
 
-console.log("startInit!");
+
 init();
-console.log("endInit!");
