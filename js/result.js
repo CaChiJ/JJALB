@@ -1,6 +1,7 @@
 const textMonitor = document.querySelector('.text-monitor');
 const analysisBox = document.querySelector('.suggestion-box');
 const idxMonitor = document.querySelector('.idx-monitor');
+const countMonitor = document.querySelector('.count-monitor');
 
 const resetBtn = document.querySelector('.reset-btn');
 const selectAllBtn = document.querySelector('.select-all-btn');
@@ -13,9 +14,12 @@ const SELECTED_CLASSNAME = 'selected';
 const REPLACED_CLASSNAME = 'replaced';
 const MOUSEENTERTEXT_CLASSNAME = 'mouseenter-text';
 
+let currentStrLength = originalText.length;
+
 
 function init() {
     setTextMonitor(originalText);
+    updateReduceCount(0);
 
     if (analysis.length === 0) {
         let alertEmpty = document.createElement('span');
@@ -87,29 +91,6 @@ function setTextMonitor(str) {
 }
 
 
-function handleClickSuggestion(event) {
-    let block;  // 클릭된 suggestion 블럭
-
-    if (event.target.classList.contains('suggestion')) {
-        block = event.target;
-    } else {
-        block = event.target.parentElement;
-    }
-
-    let blockNum = block.id.substr(11);
-
-    if (block.classList.contains(SELECTED_CLASSNAME)) {
-        // 분석 해제
-        block.classList.remove(SELECTED_CLASSNAME);
-        updateText(blockNum, false);
-    } else {
-        // 분석 적용
-        block.classList.add(SELECTED_CLASSNAME);
-        updateText(blockNum, true);
-    }
-}
-
-
 function updateText(anaylsisNum, status) {
     const selectedText = document.getElementById(`text-${analysis[anaylsisNum].start_idx}`);
     let isReplaced = selectedText.classList.contains(REPLACED_CLASSNAME);
@@ -137,6 +118,43 @@ function updateText(anaylsisNum, status) {
 }
 
 
+function updateReduceCount(delta) {
+    currentStrLength += delta;
+    countMonitor.innerText = `${currentStrLength}자 / ${originalText.length}자`;
+}
+
+
+function resetReduceCount() {
+    currentStrLength = originalText.length;
+    countMonitor.innerText = `${currentStrLength}자 / ${originalText.length}자`;
+}
+
+
+function handleClickSuggestion(event) {
+    let block;  // 클릭된 suggestion 블럭
+
+    if (event.target.classList.contains('suggestion')) {
+        block = event.target;
+    } else {
+        block = event.target.parentElement;
+    }
+
+    let blockNum = block.id.substr(11);
+
+    if (block.classList.contains(SELECTED_CLASSNAME)) {
+        // 분석 해제
+        block.classList.remove(SELECTED_CLASSNAME);
+        updateText(blockNum, false);
+        updateReduceCount(analysis[blockNum].removed);
+    } else {
+        // 분석 적용
+        block.classList.add(SELECTED_CLASSNAME);
+        updateText(blockNum, true);
+        updateReduceCount(-analysis[blockNum].removed);
+    }
+}
+
+
 function handleClickReset() {
     if(confirm("현재 변경사항을 모두 초기 상태로 되돌리시겠습니까?")) {
         setTextMonitor(originalText);
@@ -144,17 +162,26 @@ function handleClickReset() {
 
         for(let i = 0; i < suggestions.length; ++i) {
             suggestions[i].classList.remove(SELECTED_CLASSNAME);
+            if(suggestions[i].classList.contains(SELECTED_CLASSNAME)) {}
         }
+
+        resetReduceCount();
     }
 }
 
 
 function handleClickSelectAll() {
+    let newReduceCount = 0;
+    
     for(let i = 0; i < analysis.length; ++i) {
         let block = document.getElementById(`suggestion-${i}`);
         block.classList.add(SELECTED_CLASSNAME);
         updateText(i, true);
+        newReduceCount += analysis[i].removed;
     }
+
+    resetReduceCount();
+    updateReduceCount(-newReduceCount);
 }
 
 
@@ -172,6 +199,7 @@ function handleMouseenterChar(event) {
     idxMonitor.innerText = `위치: ${parseInt(event.target.id.substr(5)) + 1}`;
     event.target.classList.add(MOUSEENTERTEXT_CLASSNAME);
 }
+
 
 function handleMouseleaveChar(event) {
     idxMonitor.innerText = '';

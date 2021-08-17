@@ -10,7 +10,7 @@
     grid-template:
         "text-label suggestion-label" 50px
         "text-monitor suggestion-box" 65vh
-        "idx-monitor control-box" 35px / 40vw 30vw;
+        "detail-monitor control-box" 35px / 40vw 30vw;
     justify-content: center;
     align-content: center;
     width: 100%;
@@ -64,15 +64,15 @@
     overflow: auto;
 }
 
-.idx-monitor {
-    grid-area: idx-monitor;
+.detail-monitor {
     display: flex;
-    align-items: center;
-    background-color: rgb(20, 20, 20);
-    color: white;
-    font-size: 1rem;
-    padding: 8px;
+    grid-area: detail-monitor;
+    justify-content: space-between;
     font-family: "Nanum Gothic";
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(20, 20, 20);
+    padding: 8px;
 }
 
 .control-box {
