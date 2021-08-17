@@ -8,9 +8,11 @@ const analysis = JSON.parse(localStorage.getItem('analysis'));
 const originalText = JSON.parse(localStorage.getItem('original_text'));
 
 const SELECTED_CLASSNAME = 'selected';
+const REPLACED_CLASSNAME = 'replaced';
+
 
 function init() {
-    textMonitor.innerText = originalText;
+    setTextMonitor(originalText);
 
     if (analysis.length === 0) {
         // 분석 결과가 비었음을 알려주는 문구 추가
@@ -29,6 +31,7 @@ function init() {
     copyBtn.addEventListener('click', handleClickCopy);
 }
 
+
 function makeAnalysisBlock(start_idx, prior_str, new_str, removed) {
     const eBlock = document.createElement("div");
     const eStartIdx = document.createElement("span");
@@ -42,7 +45,7 @@ function makeAnalysisBlock(start_idx, prior_str, new_str, removed) {
     eNewStr.classList.add("sug-new");
     eRemoved.classList.add("sug-removed");
 
-    eStartIdx.innerText = start_idx;
+    eStartIdx.innerText = parseInt(start_idx) + 1;
     ePriorStr.innerText = prior_str;
     eNewStr.innerText = new_str;
     eRemoved.innerText = removed;
@@ -56,13 +59,22 @@ function makeAnalysisBlock(start_idx, prior_str, new_str, removed) {
 }
 
 
-function removeAnalysisBlock(idx) {
-    analysisBox.removeChild(document.querySelector(`.suggestion-box #suggestion-${idx}`));
+function setTextMonitor(str) {
+    while(textMonitor.firstChild) {
+        textMonitor.firstChild.remove();
+    }
+
+    for(let i = 0; i < str.length; ++i) {
+        let newChar = document.createElement('span');
+        newChar.innerText = str[i];
+        newChar.id = `text-${i}`
+        textMonitor.appendChild(newChar);
+    }
 }
 
 
 function handleClickSuggestion(event) {
-    let block;
+    let block;  // 클릭된 suggestion 블럭
 
     if (event.target.classList.contains('suggestion')) {
         block = event.target;
@@ -70,24 +82,65 @@ function handleClickSuggestion(event) {
         block = event.target.parentElement;
     }
 
+    let blockNum = block.id.substr(11);
+
     if (block.classList.contains(SELECTED_CLASSNAME)) {
+        // 분석 해제
         block.classList.remove(SELECTED_CLASSNAME);
+        updateText(blockNum, false);
     } else {
+        // 분석 적용
         block.classList.add(SELECTED_CLASSNAME);
+        updateText(blockNum, true);
     }
-    //if(block.classList)
+}
+
+
+function updateText(anaylsisNum, status) {
+    const selectedText = document.getElementById(`text-${analysis[anaylsisNum].start_idx}`);
+    let isReplaced = selectedText.classList.contains(REPLACED_CLASSNAME);
+
+    if(status && isReplaced || !status && !isReplaced) {
+        return;
+    }
+
+    if(status) {
+        for(let i = 0; i < analysis[anaylsisNum].prior_str.length; ++i) {
+            document.getElementById(`text-${analysis[anaylsisNum].start_idx + i}`).remove();
+        }
+        
+        let newStr = document.createElement('span');
+        newStr.id = `text-${analysis[anaylsisNum].start_idx}`;
+        newStr.classList.add(REPLACED_CLASSNAME);
+        newStr.innerText = analysis[anaylsisNum].new_str;
+        textMonitor.insertBefore(newStr, document.getElementById(`text-${analysis[anaylsisNum].start_idx + analysis[anaylsisNum].prior_str.length}`));
+    } else {
+        document.getElementById(`text-${analysis[anaylsisNum].start_idx}`).remove();
+
+        for(let i = 0; i < analysis[anaylsisNum].prior_str.length; ++i) {
+            let newStr = document.createElement('span');
+            newStr.id = `text-${analysis[anaylsisNum].start_idx + i}`;
+            newStr.innerText = analysis[anaylsisNum].prior_str[i];
+            textMonitor.insertBefore(newStr, document.getElementById(`text-${analysis[anaylsisNum].start_idx + analysis[anaylsisNum].prior_str.length}`));
+        }
+    }
 }
 
 
 function handleClickReset() {
     if(confirm("현재 변경사항을 모두 초기 상태로 되돌리시겠습니까?")) {
-        textMonitor.innerText = originalText;
+        setTextMonitor(originalText);
         const suggestions = analysisBox.querySelectorAll('.suggestion');
 
         for(let i = 0; i < suggestions.length; ++i) {
             suggestions[i].classList.remove(SELECTED_CLASSNAME);
         }
     }
+}
+
+
+function handleClickSelectAll() {
+
 }
 
 

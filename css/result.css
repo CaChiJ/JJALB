@@ -169,3 +169,7 @@
 .selected {
     background-color: rgb(230, 230, 230);
 }
+
+.replaced {
+    font-weight: 700;
+}
