@@ -2,6 +2,7 @@ const textMonitor = document.querySelector('.text-monitor');
 const analysisBox = document.querySelector('.suggestion-box');
 
 const resetBtn = document.querySelector('.reset-btn');
+const selectAllBtn = document.querySelector('.select-all-btn');
 const copyBtn = document.querySelector('.copy-btn');
 
 const analysis = JSON.parse(localStorage.getItem('analysis'));
@@ -28,6 +29,7 @@ function init() {
     }
 
     resetBtn.addEventListener('click', handleClickReset);
+    selectAllBtn.addEventListener('click', handleClickSelectAll);
     copyBtn.addEventListener('click', handleClickCopy);
 }
 
@@ -140,7 +142,11 @@ function handleClickReset() {
 
 
 function handleClickSelectAll() {
-
+    for(let i = 0; i < analysis.length; ++i) {
+        let block = document.getElementById(`suggestion-${i}`);
+        block.classList.add(SELECTED_CLASSNAME);
+        updateText(i, true);
+    }
 }
 
 
