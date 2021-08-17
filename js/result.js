@@ -16,7 +16,10 @@ function init() {
     setTextMonitor(originalText);
 
     if (analysis.length === 0) {
-        // 분석 결과가 비었음을 알려주는 문구 추가
+        let alertEmpty = document.createElement('span');
+        alertEmpty.innerText = '수정할 부분이 없습니다.';
+        alertEmpty.classList.add('alert-empty');
+        analysisBox.appendChild(alertEmpty);
         return;
     }
 
