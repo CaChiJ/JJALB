@@ -1,5 +1,6 @@
 const textMonitor = document.querySelector('.text-monitor');
 const analysisBox = document.querySelector('.suggestion-box');
+const idxMonitor = document.querySelector('.idx-monitor');
 
 const resetBtn = document.querySelector('.reset-btn');
 const selectAllBtn = document.querySelector('.select-all-btn');
@@ -10,6 +11,7 @@ const originalText = JSON.parse(localStorage.getItem('original_text'));
 
 const SELECTED_CLASSNAME = 'selected';
 const REPLACED_CLASSNAME = 'replaced';
+const MOUSEENTERTEXT_CLASSNAME = 'mouseenter-text';
 
 
 function init() {
@@ -64,16 +66,23 @@ function makeAnalysisBlock(start_idx, prior_str, new_str, removed) {
 }
 
 
+function makeSpanStr(idx, str) {
+    let newChar = document.createElement('span');
+    newChar.innerText = str;
+    newChar.id = `text-${idx}`
+    newChar.addEventListener('mouseenter', handleMouseenterChar);
+    newChar.addEventListener('mouseleave', handleMouseleaveChar);
+    return newChar;
+}
+
+
 function setTextMonitor(str) {
     while(textMonitor.firstChild) {
         textMonitor.firstChild.remove();
     }
 
     for(let i = 0; i < str.length; ++i) {
-        let newChar = document.createElement('span');
-        newChar.innerText = str[i];
-        newChar.id = `text-${i}`
-        textMonitor.appendChild(newChar);
+        textMonitor.appendChild(makeSpanStr(i, str[i]));
     }
 }
 
@@ -114,18 +123,14 @@ function updateText(anaylsisNum, status) {
             document.getElementById(`text-${analysis[anaylsisNum].start_idx + i}`).remove();
         }
         
-        let newStr = document.createElement('span');
-        newStr.id = `text-${analysis[anaylsisNum].start_idx}`;
+        let newStr = makeSpanStr(analysis[anaylsisNum].start_idx, analysis[anaylsisNum].new_str);
         newStr.classList.add(REPLACED_CLASSNAME);
-        newStr.innerText = analysis[anaylsisNum].new_str;
         textMonitor.insertBefore(newStr, document.getElementById(`text-${analysis[anaylsisNum].start_idx + analysis[anaylsisNum].prior_str.length}`));
     } else {
         document.getElementById(`text-${analysis[anaylsisNum].start_idx}`).remove();
 
         for(let i = 0; i < analysis[anaylsisNum].prior_str.length; ++i) {
-            let newStr = document.createElement('span');
-            newStr.id = `text-${analysis[anaylsisNum].start_idx + i}`;
-            newStr.innerText = analysis[anaylsisNum].prior_str[i];
+            let newStr = makeSpanStr(analysis[anaylsisNum].start_idx + i, analysis[anaylsisNum].prior_str[i]);
             textMonitor.insertBefore(newStr, document.getElementById(`text-${analysis[anaylsisNum].start_idx + analysis[anaylsisNum].prior_str.length}`));
         }
     }
@@ -160,6 +165,17 @@ function handleClickCopy() {
     tmpText.select();
     document.execCommand('copy');
     document.body.removeChild(tmpText);
+}
+
+
+function handleMouseenterChar(event) {
+    idxMonitor.innerText = `위치: ${parseInt(event.target.id.substr(5)) + 1}`;
+    event.target.classList.add(MOUSEENTERTEXT_CLASSNAME);
+}
+
+function handleMouseleaveChar(event) {
+    idxMonitor.innerText = '';
+    event.target.classList.remove(MOUSEENTERTEXT_CLASSNAME);
 }
 
 

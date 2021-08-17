@@ -185,3 +185,7 @@
     align-items: center;
     font-size: 1rem;
 }
+
+.mouseenter-text {
+    background-color: lightgray;
+}
