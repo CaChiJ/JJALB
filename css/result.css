@@ -10,7 +10,7 @@
     grid-template:
         "text-label suggestion-label" 50px
         "text-monitor suggestion-box" 65vh
-        "text-monitor control-box" 40px / 40vw 30vw;
+        "idx-monitor control-box" 35px / 40vw 30vw;
     justify-content: center;
     align-content: center;
     width: 100%;
@@ -62,6 +62,17 @@
     grid-auto-rows: 6vh;
     padding: 0;
     overflow: auto;
+}
+
+.idx-monitor {
+    grid-area: idx-monitor;
+    display: flex;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    font-size: 1rem;
+    padding: 8px;
+    font-family: "Nanum Gothic";
 }
 
 .control-box {
