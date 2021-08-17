@@ -78,6 +78,7 @@
     color: white;
     font-family: "Gowun Dodum";
     border: 2px solid black;
+    cursor: pointer;
 }
 
 .general-btn:active {
