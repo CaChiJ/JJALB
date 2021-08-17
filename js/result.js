@@ -140,6 +140,7 @@ function handleClickSuggestion(event) {
     }
 
     let blockNum = block.id.substr(11);
+    document.getElementById(`text-${analysis[blockNum].start_idx}`).scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
 
     if (block.classList.contains(SELECTED_CLASSNAME)) {
         // 분석 해제
@@ -206,5 +207,6 @@ function handleMouseleaveChar(event) {
     event.target.classList.remove(MOUSEENTERTEXT_CLASSNAME);
 }
 
-
+console.log("startInit!");
 init();
+console.log("endInit!");

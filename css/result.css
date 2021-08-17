@@ -1,5 +1,5 @@
 .content {
-    height: 87vh;
+    height: 88vh;
     width: 90vw;
 }
 
@@ -9,8 +9,8 @@
     column-gap: 5px;
     grid-template:
         "text-label suggestion-label" 50px
-        "text-monitor suggestion-box" 65vh
-        "detail-monitor control-box" 35px / 40vw 30vw;
+        "text-monitor suggestion-box" 70vh
+        "detail-monitor control-box" 30px / 40vw 30vw;
     justify-content: center;
     align-content: center;
     width: 100%;
@@ -143,6 +143,7 @@
     align-items: center;
     width: 100%;
     box-shadow: 0px 1px 3px 1px lightgray;
+    cursor: pointer;
 }
 
 .suggestion > span {
