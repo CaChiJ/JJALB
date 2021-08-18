@@ -30,6 +30,8 @@
     box-shadow: 
     inset 0px 0px 25px rgb(220, 220, 220),
     0px 5px 20px black;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
 }
 
 .start-key:active {

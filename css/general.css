@@ -23,6 +23,15 @@
     "footer footer footer" 0px / 1fr 7fr 1fr;
 }
 
+.general-mobile-page {
+    display: grid;
+    width: 100%;
+    grid-template:
+    ". . ." 5vh
+    ". content ." 1fr
+    ". . ." 1vh / 1fr 10fr 1fr;
+}
+
 .general-header {
     display: grid;
     grid-area: header;
@@ -74,11 +83,21 @@
 }
 
 .general-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: black;
     color: white;
     font-family: "Gowun Dodum";
     border: 2px solid black;
     cursor: pointer;
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
 }
 
 .general-btn:active {

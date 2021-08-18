@@ -8,9 +8,9 @@
     display: grid;
     column-gap: 5px;
     grid-template:
-        "text-label suggestion-label" 50px
-        "text-monitor suggestion-box" 70vmin
-        "detail-monitor control-box" 30px / 45vw 30vw;
+        "text-label suggestion-label" 40px
+        "text-monitor suggestion-box" 75vmin
+        "detail-monitor control-box" 30px / 60vw 35vw;
     justify-content: center;
     align-content: center;
     width: 100%;
@@ -60,8 +60,8 @@
     display: grid;
     justify-content: flex-start;
     grid-template-columns: 100%;
-    grid-template-rows: 4vh;
-    grid-auto-rows: 6vh;
+    grid-template-rows: 1.5rem;
+    grid-auto-rows: 1.5rem;
     padding: 0;
     overflow: auto;
 }
