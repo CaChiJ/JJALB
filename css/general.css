@@ -1,120 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Song+Myung&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 
 .general-body {
-    margin: 0;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  margin: 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .general-body::-webkit-scrollbar {
-    display:none; /* Chrome, Safari, Opera */
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .general-page {
-    display: grid;
-    width: 100%;
-    grid-template:
+  display: grid;
+  width: 100%;
+  grid-template:
     "header header header" 65px
     ". content ." 1fr
-    "footer footer footer" 0px / 1fr 7fr 1fr;
+    "footer footer footer" 0px / 1fr 8fr 1fr;
 }
 
 .general-mobile-page {
-    display: grid;
-    width: 100%;
-    grid-template:
+  display: grid;
+  width: 100%;
+  grid-template:
     ". . ." 5vh
     ". content ." 1fr
     ". . ." 1vh / 1fr 10fr 1fr;
 }
 
 .general-header {
-    display: grid;
-    grid-area: header;
-    grid-template-columns: 70px 1fr 70px;
-    align-items: center;
-    width: 100vw;
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 0px 4px 2px lightgrey;
+  display: grid;
+  grid-area: header;
+  grid-template-columns: 70px 1fr 70px;
+  align-items: center;
+  width: 100vw;
+  height: 65px;
+  background-color: white;
+  box-shadow: 0px 0px 4px 2px lightgrey;
 }
 
 .general-content {
-    cursor: default;
-    grid-area: content;
+  cursor: default;
+  grid-area: content;
 }
 
 .general-footer {
-    grid-area: footer;
+  grid-area: footer;
 }
 
 .general-logo {
-    justify-self: center;
-    text-decoration: none;
-    font-size: 35px;
-    background-color: black;
-    color: white;
-    padding: 0px 5px 0px 5px;
-    border-radius: 30%;
-    font-family: "Song Myung";
+  justify-self: center;
+  text-decoration: none;
+  font-size: 35px;
+  background-color: black;
+  color: white;
+  padding: 0px 5px 0px 5px;
+  border-radius: 30%;
+  font-family: "Song Myung";
 }
 
 .general-site-title {
-    margin-top: 5px;
-    flex-grow: 1;
-    font-size: 45px;
-    font-family: Bebas Neue;
-    text-decoration: none;
-    color: black;
+  margin-top: 5px;
+  flex-grow: 1;
+  font-size: 45px;
+  font-family: Bebas Neue;
+  text-decoration: none;
+  color: black;
 }
 
 .general-about {
-    text-align: center;
-    width: 100%;
-    margin-top: 3px;
-    font-size: 20px;
-    font-family: Bebas Neue;
-    text-decoration: none;
-    color: black;
+  text-align: center;
+  width: 100%;
+  margin-top: 3px;
+  font-size: 20px;
+  font-family: Bebas Neue;
+  text-decoration: none;
+  color: black;
 }
 
 .general-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    color: white;
-    font-family: "Gowun Dodum";
-    border: 2px solid black;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  font-family: "Gowun Dodum";
+  border: 2px solid black;
+  cursor: pointer;
 
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
 }
 
 .general-btn:active {
-    background-color: white;
-    border: 0;
-    color: black;
-    box-shadow: 0px 0px 1px 1px black;
+  background-color: white;
+  border: 0;
+  color: black;
+  box-shadow: 0px 0px 1px 1px black;
 }
 
 .general-spin {
-    -webkit-animation-name: spin;
-    -webkit-animation-duration: 5s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
 }
 
 @-webkit-keyframes spin {
-    from   {  -webkit-transform: rotate(0deg); }
-    to   {  -webkit-transform: rotate(360deg); }
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
