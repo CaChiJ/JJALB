@@ -99,7 +99,7 @@ function analyze() {
     }
 
     for (let rep = 0; rep < replaceTable.length; ++rep) {
-      if (idx + replaceTable[rep].length >= originalText.length) {
+      if (idx + replaceTable[rep][0].length > originalText.length) {
         continue;
       }
 
