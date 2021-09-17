@@ -17,15 +17,13 @@
     <!--favicon-->
     <link rel="stylesheet" href="/css/general.css" type="text/css">
     <link rel="stylesheet" href="/css/input.css" type="text/css">
+    <script src="/js/include.js"></script>
+    <script>includeHeader();</script>
 </head>
 
 <body class="general-body">
     <div class="general-page">
-        <div class="general-header">
-            <a class="general-logo" href="/index.html">짧</a>
-            <a class="general-site-title"" href=" /index.html">JJALB.SITE</a>
-            <a class="general-about" href="/html/about.html">ABOUT</a>
-        </div>
+        <div data-include-path="/html/header.html"></div>
         <div class="general-content">
             <form class="input-box" action="/html/loading.html">
                 <textarea required class="writing-area" placeholder="내용을 입력해주세요."></textarea>

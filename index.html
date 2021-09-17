@@ -30,15 +30,13 @@
     <!--favicon-->
     <link rel="stylesheet" href="/css/general.css" type="text/css">
     <link rel="stylesheet" href="/css/home.css" type="text/css">
+    <script src="/js/include.js"></script>
+    <script>includeHeader();</script>
     <script src="https://unpkg.com/type-hangul"></script>   <!--typing effect-->
 </head>
 <body class="general-body">
     <div class="general-page">
-        <div class="general-header header">
-            <a class="general-logo" href="/index.html">짧</a>
-            <a class="general-site-title"" href=" /index.html">JJALB.SITE</a>
-            <a class="general-about" href="/html/about.html">ABOUT</a>
-        </div>
+        <div data-include-path="/html/header.html"></div>
         <div class="general-content">
             <h4 class="description">
                 <span id="upper-description">글이 너무 길어서 고민인가요?</span>
@@ -51,6 +49,7 @@
         </div>
         <div class="general-footer"></div>
     </div>
+    
     <script src="/js/home.js"></script>
 </body>
 </html>
