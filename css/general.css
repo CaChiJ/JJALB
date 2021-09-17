@@ -35,7 +35,9 @@
 .general-header {
   display: grid;
   grid-area: header;
-  grid-template-columns: 70px 1fr 70px;
+  grid-template-columns: 70px 1fr 80px;
+  grid-auto-flow: column;
+  grid-auto-columns: 80px;
   align-items: center;
   width: 100vw;
   height: 65px;
