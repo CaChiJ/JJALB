@@ -11,6 +11,7 @@
 
         gtag('config', 'G-YT5NH3LE76');
     </script>
+
     <!--google verification-->
     <meta name="google-site-verification" content="pE1sl0gz72Xhp2sL38TE3E7i0zGwY1VWszEQa9AbUmM" />
     <!--google verification-->
@@ -29,9 +30,8 @@
     <!--favicon-->
     <link rel="stylesheet" href="/css/general.css" type="text/css">
     <link rel="stylesheet" href="/css/home.css" type="text/css">
-
+    <script src="https://unpkg.com/type-hangul"></script>   <!--typing effect-->
 </head>
-
 <body class="general-body">
     <div class="general-page">
         <div class="general-header header">
@@ -40,7 +40,10 @@
             <a class="general-about" href="/html/about.html">ABOUT</a>
         </div>
         <div class="general-content">
-            <h4 class="description">글이 너무 길어서 고민인가요?<br />클릭 한 번으로 긴 글을 짧게 줄여보세요!</h4>
+            <h4 class="description">
+                <span id="upper-description">글이 너무 길어서 고민인가요?</span>
+                <span id="lower-description"> </span>
+            </h4>
             <form class="starting" action="/html/input.html">
                 <input class="start-key" type="submit" value="✂ Jab">
             </form>
@@ -48,6 +51,6 @@
         </div>
         <div class="general-footer"></div>
     </div>
+    <script src="/js/home.js"></script>
 </body>
-
 </html>
